@@ -6,10 +6,10 @@ from django.contrib.auth.models import User
     
 class user_or_service_address(models.Model):
 
-    # address_type = models.CharField(
-    #     max_length=20,
-    #     choices=[('vendor_address', 'Vendor Address'), ('user_address', 'User Address')],
-    # )
+    address_type = models.CharField(
+        max_length=20,
+        choices=[('vendor_address', 'Vendor Address'), ('user_address', 'User Address')], default='user_address',
+    )
     country = models.CharField(max_length=100)
     province = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
