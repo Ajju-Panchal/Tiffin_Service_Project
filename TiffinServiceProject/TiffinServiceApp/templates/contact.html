@@ -2,76 +2,508 @@
 {% load static %}
 
 {% block content %}
+<!-- 
+<style>
+.carousel-container {
+  display: flex;
+  /* align-items: center; */
+  align-items: flex-start; /* Align to the top */
 
-  <div class="page-heading">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <div class="top-text header-text">
-            <h6>Keep in touch with us</h6>
-            <h2>Feel free to send us a message about your business needs</h2>
-          </div>
+  background-color: #f7f7f7;
+  /* padding: 20px; */
+  padding: 1px;
+}
+
+.carousel {
+  /* flex: 1; */
+  position: relative;
+  overflow: hidden;
+  margin-right: 20px; /* Add spacing between carousel and description */
+
+}
+
+.carousel-inner {
+  display: flex;
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  margin-right: 0; /* Remove margin between carousel items */
+}
+
+.description {
+  flex: 1;
+  padding: 20px;
+
+  /* background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+}
+
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+img{
+  width: 590px !important;
+  height: 512px !important;
+}
+
+.description h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.description p {
+  margin: 5px 0;
+}
+
+.menu-item {
+  margin-bottom: 10px; /* Add margin between menu items */
+}
+
+</style> -->
+
+<!-- <style>
+  .carousel-container {
+    display: flex;
+    align-items: flex-start;
+    /* Align to the top */
+    background-color: #f7f7f7;
+    padding: 20px;
+  }
+
+  .carousel {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    margin-right: 20px;
+    /* Add spacing between carousel and description */
+  }
+
+  .carousel-inner {
+    display: flex;
+    margin: 0;
+    /* Remove default margin */
+    padding: 0;
+    /* Remove default padding */
+  }
+
+  .carousel-item {
+    flex: 0 0 auto;
+    margin-right: 0;
+    /* Remove margin between carousel items */
+  }
+
+  .description {
+    flex: 1;
+    padding: 20px;
+    /* padding-left: 20px; */
+    
+  }
+
+  .prev-btn,
+  .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .prev-btn {
+    left: 10px;
+  }
+
+  .next-btn {
+    right: 10px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .description h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .description p {
+    margin: 5px 0;
+  }
+
+  .menu-item {
+    margin-bottom: 10px;
+    /* Add margin between menu items */
+  }
+
+  .description-tab{
+    /* display: flex; */
+    align-items: flex-start;
+    /* Align to the top */
+    background-color: #f7f7f7;
+    padding: 20px;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .carousel-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .carousel {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      padding: 10px;
+    }
+  }
+</style> -->
+
+<style>
+  .carousel-container {
+    display: flex;
+    align-items: flex-start;
+    background-color: #f7f7f7;
+    padding: 20px;
+  }
+
+  .carousel {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    margin-right: 20px;
+  }
+
+  .carousel-inner {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  .carousel-item {
+    flex: 0 0 auto;
+    margin-right: 0;
+  }
+
+  .description {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif; /* Changed font */
+  }
+
+  .description h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+    border-bottom: 2px solid #ddd; /* Added bottom border */
+    padding-bottom: 10px; /* Added padding */
+  }
+
+  .description p {
+    margin: 10px 0;
+    color: #666;
+    line-height: 1.6; /* Improved line spacing */
+  }
+
+  .description strong {
+    color: #333; /* Made strong tags stand out */
+    font-weight: bold; /* Made text bold */
+  }
+
+  .pricing {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    font-family: 'Arial', sans-serif; /* Changed font */
+  }
+
+  .menu-item {
+    margin-bottom: 10px;
+    color: #444;
+    font-weight: bold; /* Made text bold */
+    line-height: 1.6; /* Improved line spacing */
+  }
+
+  .description-tab {
+    align-items: flex-start;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif; /* Changed font */
+  }
+
+  .description-tab dt {
+    font-size: 18px; /* Increased font size */
+    color: #333;
+    margin-bottom: 10px; /* Added margin */
+    border-bottom: 2px solid #ddd; /* Added bottom border */
+    padding-bottom: 5px; /* Added padding */
+  }
+
+  .description-tab dd {
+    margin-left: 20px; /* Indented text */
+    color: #666;
+    line-height: 1.6; /* Improved line spacing */
+    position: relative;
+    padding-left: 15px; /* Padding for the bullet */
+  }
+
+  .description-tab .bullet {
+    position: absolute;
+    left: 0;
+    top: 5px; /* Adjusted to vertically align with text */
+    color: #555; /* Color for the bullet */
+  }
+
+  /* Button styles */
+  .prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    padding: 10px;
+  }
+
+  .prev-btn {
+    left: 10px;
+  }
+
+  .next-btn {
+    right: 10px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .carousel-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .carousel {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+
+    .description {
+      padding: 10px;
+    }
+  }
+</style>
+
+<div class="page-heading">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="top-text header-text">
+          <h6>Keep in touch with us</h6>
+          <h2>Feel free to send us a message about your business needs</h2>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <div class="contact-page">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="inner-content">
+<div class="contact-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="carousel-container">
+          <div class="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{% static 'images/listing-04.jpg' %}" alt="Image 1">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'images/listing-03.jpg' %}" alt="Image 2">
+              </div>
+              <!-- Add more carousel items as needed -->
+            </div>
+            <!-- Navigation buttons -->
+            <button class="prev-btn">&#10094;</button>
+            <button class="next-btn">&#10095;</button>
+
+          </div>
+          <div class="description">
+            <h2>Tiffin Service: Example Tiffin</h2>
+            <p>Vendor: John Doe</p>
+            <p>Mobile Number: <b>+1234567890</b></p>
+            <!-- <p>Details: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
+            <p>Delivery Areas: Delivery available in Area A, Area B, and Area C</p>
+            <!-- <dt class="menu-item">Serving:</dt>
+
+            <dd class="menu-item">- Roti/ Paratha/ Puri (Extra @0.70/ Each)</dd>
+            <dd class="menu-item">- Sabji (Green Sabji, Punjabi Sabji, Kathiyawadi Sabji, Kathod (Pulse Curry))</dd>
+            <dd class="menu-item">- Gujarati Daal & Kadhi/ Daal Fry/ Daal Tadka</dd>
+            <dd class="menu-item">- Rice/ Pulav/ Rajwadi Khichdi/ Biriyani</dd>
+            <dd class="menu-item">- Salad/ Raita/ Papad (Roasted or Fried)</dd>
+            <dd class="menu-item">- Feast Tiffin on Wednesday (Sweet/ Variety)</dd> -->
+            <br>
+
             <div class="row">
-              <div class="col-lg-6">
-                <div id="map">
-                  <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="650px" frameborder="0" style="border:0" allowfullscreen></iframe>
-                </div>
+              <div class="col-lg-12">
+                <dt class="menu-item">Weekly Pricing:</dt>
+                <dd class="menu-item">- 5 Days a Week : $54.99 <span>(Monday to Friday)*</span></dd> 
+                <dd class="menu-item">- 6 Days a Week : $64.99 <span>(Monday to Saturday)*</span></dd> 
+
               </div>
-              <div class="col-lg-6 align-self-center">
-                <form id="contact" action="" method="get">
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <fieldset>
-                        <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
-                      </fieldset>
-                    </div>
-                    <div class="col-lg-6">
-                      <fieldset>
-                        <input type="surname" name="surname" id="surname" placeholder="Surname" autocomplete="on" required>
-                      </fieldset>
-                    </div>
-                    <div class="col-lg-12">
-                      <fieldset>
-                        <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email" required="">
-                      </fieldset>
-                    </div>
-                    <div class="col-lg-12">
-                      <ul>
-                        <li><input type="checkbox" name="option1" value="cars"><span>Cars</span></li>
-                        <li><input type="checkbox" name="option2" value="aparmtents"><span>Apartments</span></li>
-                        <li><input type="checkbox" name="option3" value="shopping"><span>Shopping</span></li>
-                        <li><input type="checkbox" name="option4" value="food"><span>Food &amp; Life</span></li>
-                        <li><input type="checkbox" name="option5" value="traveling"><span>Traveling</span></li>
-                      </ul>
-                    </div>
-                    <div class="col-lg-12">
-                      <fieldset>
-                        <textarea name="message" type="text" class="form-control" id="message" placeholder="Message" required=""></textarea>  
-                      </fieldset>
-                    </div>
-                    <div class="col-lg-12">
-                      <fieldset>
-                        <button type="submit" id="form-submit" class="main-button "><i class="fa fa-paper-plane"></i> Send Message</button>
-                      </fieldset>
-                    </div>
+              <br><br>
+              <div class="col-lg-12">
+
+                <dt class="menu-item">Monthly Pricing: </dt>
+                <dd class="menu-item">- 5 Days a Week : $194.99 <span>(Monday to Friday)*</span></dd>
+                <dd class="menu-item">- 6 Days a Week : $229.99 <span>(Monday to Saturday)*</span></dd> 
+
+              </div>
+            </div>
+            <br>
+            <dt class="menu-item"> Trail Tiffin Available at 10$</dt>
+
+          </div>
+          <br>
+
+
+        </div>
+
+        <br>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="description-tab">
+              <dt class="menu-item">Serving:</dt>
+              <dd class="menu-item"><span class="bullet">&#8226;</span> Roti/ Paratha/ Puri (Extra @0.70/ Each)</dd>
+              <dd class="menu-item"><span class="bullet">&#8226;</span> Sabji (Green Sabji, Punjabi Sabji, Kathiyawadi Sabji, Kathod (Pulse Curry))</dd>
+              <dd class="menu-item"><span class="bullet">&#8226;</span> Gujarati Daal & Kadhi/ Daal Fry/ Daal Tadka</dd>
+              <dd class="menu-item"><span class="bullet">&#8226;</span> Rice/ Pulav/ Rajwadi Khichdi/ Biriyani</dd>
+              <dd class="menu-item"><span class="bullet">&#8226;</span> Salad/ Raita/ Papad (Roasted or Fried)</dd>
+              <dd class="menu-item"><span class="bullet">&#8226;</span> Feast Tiffin on Wednesday (Sweet/ Variety)</dd>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="inner-content">
+          <div class="row">
+            <div class="col-lg-6">
+              <div id="map">
+                <iframe
+                  src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  width="100%" height="650px" frameborder="0" style="border:0" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="col-lg-6 align-self-center">
+              <form id="contact" action="" method="get">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <fieldset>
+                      <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
+                    </fieldset>
                   </div>
-                </form>
-              </div>
+                  <div class="col-lg-6">
+                    <fieldset>
+                      <input type="surname" name="surname" id="surname" placeholder="Surname" autocomplete="on"
+                        required>
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email"
+                        required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <ul>
+                      <li><input type="checkbox" name="option1" value="cars"><span>Cars</span></li>
+                      <li><input type="checkbox" name="option2" value="aparmtents"><span>Apartments</span></li>
+                      <li><input type="checkbox" name="option3" value="shopping"><span>Shopping</span></li>
+                      <li><input type="checkbox" name="option4" value="food"><span>Food &amp; Life</span></li>
+                      <li><input type="checkbox" name="option5" value="traveling"><span>Traveling</span></li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <textarea name="message" type="text" class="form-control" id="message" placeholder="Message"
+                        required=""></textarea>
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <button type="submit" id="form-submit" class="main-button "><i class="fa fa-paper-plane"></i> Send
+                        Message</button>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.carousel-item');
+  const totalSlides = slides.length;
 
+  function showSlide(n) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    currentSlide = (n + totalSlides) % totalSlides;
+    slides[currentSlide].classList.add('active');
+  }
+
+  document.querySelector('.prev-btn').addEventListener('click', () => {
+    showSlide(currentSlide - 1);
+  });
+
+  document.querySelector('.next-btn').addEventListener('click', () => {
+    showSlide(currentSlide + 1);
+  });
+
+  // Automatic sliding
+  setInterval(() => {
+    showSlide(currentSlide + 1);
+  }, 3000); // Adjust the interval as needed
+
+</script>
 {% endblock %}
